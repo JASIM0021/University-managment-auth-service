@@ -13,5 +13,6 @@ app.get('/', async (req: Request, res: Response) => {
 })
 // user Router
 app.use('/api/v1/user', userRouter)
+app.use('/api/v1/')
 
 export default app
