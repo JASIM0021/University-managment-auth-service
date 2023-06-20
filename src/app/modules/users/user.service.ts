@@ -1,3 +1,4 @@
+import ApiError from '../../../errors/ApiError'
 import config from '../../config/index'
 import { IUser } from './user.interface'
 import { User } from './user.model'
@@ -8,9 +9,9 @@ const createUser = async (user: IUser): Promise<IUser> => {
   if (!user.password) user.password = config.user_default_password as string
   const createUser = await User.create(user)
 
-  if (!createUser) throw new Error('Faild to create user')
+  if (!createUser) throw new ApiError(4000, 'Faild to create user')
   return createUser
 }
-export default {
+export const UserService = {
   createUser,
 }

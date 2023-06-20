@@ -13,12 +13,7 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
 
 const logger = createLogger({
   level: 'info',
-  format: combine(
-    label({ label: 'U-M' }),
-    timestamp(),
-    myFormat,
-    prettyPrint()
-  ),
+  format: combine(label({ label: 'U-M' }), timestamp(), myFormat),
   transports: [
     new transports.Console(),
 
